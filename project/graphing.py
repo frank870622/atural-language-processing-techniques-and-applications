@@ -4,8 +4,17 @@ import numpy
 from PIL import Image
 import requests
 from io import BytesIO
-pl.rcParams['font.sans-serif'] = ['Microsoft JhengHei']
-pl.rcParams['font.serif'] = ['Microsoft JhengHei']
+import urllib.request
+#pl.rcParams['font.sans-serif'] = ['Microsoft JhengHei']
+#pl.rcParams['font.serif'] = ['Microsoft JhengHei']
+'''
+
+'''
+
+import matplotlib.font_manager as font_manager
+path = "kaiu.ttf"
+prop = font_manager.FontProperties(fname=path)
+pl.rcParams['font.family'] = prop.get_name()
 
 '''
 檔案名稱: graphing.py
@@ -72,6 +81,13 @@ def drawing(string):
         rects1 = pl.bar(labels, value, width, color='r')
         autolabel(rects1)
         im = fig2img(figure)
+
+        response = requests.get("https://i.imgur.com/qqqIIVh.png")
+        chinese = Image.open(BytesIO(response.content))
+        width, height = chinese.size
+        area = [80, 431, 80 + width, 431 + height]
+        im.paste(chinese, area)
+
         im.show()
         pl.gcf().clear()
         return im
@@ -100,25 +116,32 @@ def drawing(string):
         figure = pl.figure()
         thegrid = GridSpec(2, 2)
 
+        labels = " ", "  ", "   ", "    ", "     "
+        #labels = "工作中", "服役中", "在學中", "待業", "其他"
+
         pl.subplot(thegrid[0, 0], aspect=1)
-        value = [74.76, 11.13, 7.68, 3.93, 2.50]
-        labels = "進修中", "服役中或等待服役中", "準備考試", "尋找工作中", "其他"
+        value = [23.61, 3.76, 59.66, 5.71, 7.26]
         pl.pie(value, labels=labels, autopct='%1.1f%%', shadow=True)
         pl.title('學士班')
 
         pl.subplot(thegrid[0, 1], aspect=1)
-        value = [11.38, 50.14, 12.47, 18.70, 7.32]
-        labels = "進修中", "服役中或等待服役中", "準備考試", "尋找工作中", "其他"
+        value = [71.54, 8.56, 5.67, 10.67, 3.56]
         pl.pie(value, labels=labels, autopct='%1.1f%%', shadow=True)
         pl.title('碩士班')
 
         pl.subplot(thegrid[1, 0], aspect=1)
-        value = [0, 40, 5, 30, 25]
-        labels = "進修中", "服役中或等待服役中", "準備考試", "尋找工作中", "其他"
+        value = [84.49, 8.02, 0.53, 6.95, 0]
         pl.pie(value, labels=labels, autopct='%1.1f%%', shadow=True)
-        pl.title('碩士班')
+        pl.title('博士班')
 
         im = fig2img(figure)
+
+        response = requests.get("https://i.imgur.com/SI7z0YI.jpg")
+        chinese = Image.open(BytesIO(response.content))
+        width, height = chinese.size
+        area = [400, 250, 400 + width, 250 + height]
+        im.paste(chinese, area)
+
         im.show()
         pl.gcf().clear()
 
@@ -182,3 +205,5 @@ def drawing(string):
             outputstring += each + "\n"
         print(outputstring)
         return outputstring
+
+drawing("就業比例")
