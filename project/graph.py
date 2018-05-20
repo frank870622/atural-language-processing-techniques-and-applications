@@ -37,8 +37,30 @@ def fig2data(fig):
     buf = numpy.roll(buf, 3, axis=2)
     return buf
 
+def autolabel(rects):
+    """
+    Attach a text label above each bar displaying its height
+    """
+    for rect in rects:
+        height = rect.get_height()
+        pl.text(rect.get_x() + rect.get_width()/2., 1.05*height,
+                '%d' % int(height),
+                ha='center', va='bottom')
+
 
 def drawing(string):
+    if (string == "師生數量"):
+        thegrid = GridSpec(1, 1)
+        pl.subplot(thegrid[0, 0])
+        labels = '學生', '專任教師', '兼任教師'
+        value = [21252, 1326, 684]
+        width = 0.5
+        rects1 = pl.bar(labels,  value, width, color='r')
+        autolabel(rects1)
+        pl.show()
+
+drawing("師生數量")
+'''
     figure = pl.figure()
     value = [33, 67]
     value2 = [40, 60]
@@ -57,10 +79,11 @@ def drawing(string):
     im = fig2img(figure)
     im.show()
     pl.gcf().clear()
+'''
 
 '''
 NCKU
-師生比:
+師生數量:
     學生:	21,252人(2017年03月)
     專任教師:	1,326人(2017年03月)
     兼任教師數 :	684(2017年03月)
