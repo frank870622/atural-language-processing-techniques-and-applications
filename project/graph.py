@@ -281,6 +281,10 @@ NCKU
 
 圖片 :師生數量 : https://i.imgur.com/qqqIIVh.png
       就業比例 : https://i.imgur.com/SI7z0YI.jpg (顏色)
+                 https://i.imgur.com/BVYyjt3.jpg (學士)
+                 https://i.imgur.com/tVudGrj.jpg (碩士)
+                 https://i.imgur.com/satsmEn.jpg (博士)
+      
     
  
 '''
