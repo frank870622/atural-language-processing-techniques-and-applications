@@ -108,8 +108,8 @@ def drawing(string):
         figure = pl.figure()
         thegrid = GridSpec(2, 2)
 
-        labels = " ", "  ", "   ", "    ", "     "
-        # labels = "工作中", "服役中", "在學中", "待業", "其他"
+        # labels = " ", "  ", "   ", "    ", "     "
+        labels = "工作中", "服役中", "在學中", "待業", "其他"
 
         pl.subplot(thegrid[0, 0], aspect=1)
         value = [23.61, 3.76, 59.66, 5.71, 7.26]
