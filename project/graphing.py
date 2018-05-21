@@ -4,14 +4,13 @@ import numpy
 from PIL import Image
 import requests
 from io import BytesIO
-import urllib.request
-#pl.rcParams['font.sans-serif'] = ['Microsoft JhengHei']
-#pl.rcParams['font.serif'] = ['Microsoft JhengHei']
+# pl.rcParams['font.sans-serif'] = ['Microsoft JhengHei']
+# pl.rcParams['font.serif'] = ['Microsoft JhengHei']
 '''
 
 '''
-
 import matplotlib.font_manager as font_manager
+
 path = "kaiu.ttf"
 prop = font_manager.FontProperties(fname=path)
 pl.rcParams['font.family'] = prop.get_name()
@@ -81,43 +80,36 @@ def drawing(string):
         rects1 = pl.bar(labels, value, width, color='r')
         autolabel(rects1)
         im = fig2img(figure)
-
-        response = requests.get("https://i.imgur.com/qqqIIVh.png")
-        chinese = Image.open(BytesIO(response.content))
-        width, height = chinese.size
-        area = [80, 431, 80 + width, 431 + height]
-        im.paste(chinese, area)
-
-        im.show()
+        #  im.show()
         pl.gcf().clear()
         return im
     elif string == "註冊率":
         array = [
-             "              大學    碩士    碩專",
-             "95學年度     95.64%  96.64%  98.38%",
-             "96學年度     95.32%  95.38%  93.65%",
-             "97學年度     97.24%  95.57%  93.08%",
-             "98學年度     95.98%  96.94%  99.39%",
-             "99學年度     96.01%  92.05%  95.23%",
-             "100學年度    95.53%  95.59%  88.42%",
-             "101學年度    95.72%  95.01%  88.00%",
-             "102學年度    96.49%  93.89%  88.63%",
-             "103學年度    95.05%  93.96%  87.98%",
-             "104學年度    95.22%  92.67%  88.64%",
-             "105學年度    95.31%  94.85%  93.11%",
-             "106學年度    95.35%  95.32%  94.40%"
+            "              大學    碩士    碩專",
+            "95學年度     95.64%  96.64%  98.38%",
+            "96學年度     95.32%  95.38%  93.65%",
+            "97學年度     97.24%  95.57%  93.08%",
+            "98學年度     95.98%  96.94%  99.39%",
+            "99學年度     96.01%  92.05%  95.23%",
+            "100學年度    95.53%  95.59%  88.42%",
+            "101學年度    95.72%  95.01%  88.00%",
+            "102學年度    96.49%  93.89%  88.63%",
+            "103學年度    95.05%  93.96%  87.98%",
+            "104學年度    95.22%  92.67%  88.64%",
+            "105學年度    95.31%  94.85%  93.11%",
+            "106學年度    95.35%  95.32%  94.40%"
         ]
         outputstring = ""
         for each in array:
             outputstring += each + "\n"
-        print(outputstring)
+        # print(outputstring)
         return outputstring
     elif string == "就業比例":
         figure = pl.figure()
         thegrid = GridSpec(2, 2)
 
         labels = " ", "  ", "   ", "    ", "     "
-        #labels = "工作中", "服役中", "在學中", "待業", "其他"
+        # labels = "工作中", "服役中", "在學中", "待業", "其他"
 
         pl.subplot(thegrid[0, 0], aspect=1)
         value = [23.61, 3.76, 59.66, 5.71, 7.26]
@@ -135,14 +127,7 @@ def drawing(string):
         pl.title('博士班')
 
         im = fig2img(figure)
-
-        response = requests.get("https://i.imgur.com/SI7z0YI.jpg")
-        chinese = Image.open(BytesIO(response.content))
-        width, height = chinese.size
-        area = [400, 250, 400 + width, 250 + height]
-        im.paste(chinese, area)
-
-        im.show()
+        # im.show()
         pl.gcf().clear()
 
         return im
@@ -150,7 +135,7 @@ def drawing(string):
         response = requests.get(
             "https://www.caac.ccu.edu.tw/cacportal/apply_his_report/106/106_sieve_standard/report/pict/004.png")
         im = Image.open(BytesIO(response.content))
-        im.show()
+        # im.show()
         return im
     elif string == "指考分數":
         array = [
@@ -203,7 +188,5 @@ def drawing(string):
         outputstring = ""
         for each in array:
             outputstring += each + "\n"
-        print(outputstring)
+        # print(outputstring)
         return outputstring
-
-drawing("就業比例")
