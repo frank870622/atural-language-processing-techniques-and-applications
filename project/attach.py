@@ -18,7 +18,7 @@ pl.rcParams['font.family'] = prop.get_name()
 檔案名稱: graphing.py
 此檔案為嫁接版本
 function名稱: drawing
-使用: graphing.drawing("輸入]")
+使用: graphing.drawing("輸入")
 
   輸入        回傳
      
