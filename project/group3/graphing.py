@@ -1,4 +1,4 @@
-import prettytable
+
 import matplotlib.pyplot as pl
 from matplotlib.gridspec import GridSpec
 import numpy
