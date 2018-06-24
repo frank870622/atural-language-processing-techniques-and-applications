@@ -1,3 +1,31 @@
+import prettytable
+
+
+def drawing1_1(inputlist):
+    print(inputlist)
+    tb = prettytable.PrettyTable()
+    tb.set_style(prettytable.MSWORD_FRIENDLY)
+    for array in inputlist:
+        tb.add_column(array[0], array[1:])
+    print(tb.get_string())
+
+
+def drawing1_2(inputlist):
+    print(inputlist)
+    tb = prettytable.PrettyTable()
+    tb.set_style(prettytable.MSWORD_FRIENDLY)
+    tb.add_column("學校名稱",
+                  ['科系名稱', "學生數", '教師數', '上學年度畢業生數', '106學年度新生註冊率', '畢業專業學分數', '畢業通識學分/共同學分數', '畢業實習學分數', '畢業其他學分數',
+                   '畢業總學分數', '105第一學期休學人數', '105第二學期開設專業必修學分數', '105第二學期開設專業選修學分數', '106指考最低錄取分數'])
+    for array in inputlist:
+        tb.add_column(array[0], array[1:])
+    print(tb.get_string())
+
+def drawing2(inputlist):
+    tb = prettytable.PrettyTable()
+    tb.add_column("可能的目標校系", inputlist)
+    print(tb.get_string())
+'''
 import matplotlib.pyplot as pl
 from matplotlib.gridspec import GridSpec
 import numpy
@@ -16,6 +44,7 @@ prop = font_manager.FontProperties(fname=path)
 pl.rcParams['font.family'] = prop.get_name()
 
 '''
+'''
 檔案名稱: graphing.py
 function名稱: drawing
 輸入為字串
@@ -25,7 +54,7 @@ function名稱: drawing
              學測分數              圖片
              指考分數              文字
 '''
-
+'''
 
 def fig2img(fig):
     """
@@ -190,3 +219,4 @@ def drawing(string):
             outputstring += each + "\n"
         # print(outputstring)
         return outputstring
+'''
